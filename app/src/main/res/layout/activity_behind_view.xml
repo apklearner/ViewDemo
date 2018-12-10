@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <com.example.viewdemo.view.BehindGroupView
+            android:id="@+id/beview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_click"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#99000000"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:text="This is the next view !!!\n safsfffsf \n afdsfsfdsafa \n affdsfdfsf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisfsfs13"
+                android:lineSpacingMultiplier="1.5"
+                android:background="#ffa0a9"
+                />
+
+
+        </com.example.viewdemo.view.BehindGroupView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1000dp"
+            android:background="#0af9a0"
+            />
+
+    </LinearLayout>
+
+
+</ScrollView>
