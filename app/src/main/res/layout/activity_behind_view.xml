@@ -2,7 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +27,7 @@
 
 
             <TextView
+                android:id="@+id/tv_next"
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 android:text="This is the next view !!!\n safsfffsf \n afdsfsfdsafa \n affdsfdfsf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisfsfs13"
@@ -38,8 +41,45 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="1000dp"
+            android:layout_height="100dp"
             android:background="#0af9a0"
+            android:text="This is the content page  \n"
+            android:lineSpacingMultiplier="1.5"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#af8a0f"
+            android:text="This is the content page  \n"
+            android:lineSpacingMultiplier="1.5"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#0aa9a0"
+            android:text="This is the content page  \n"
+            android:lineSpacingMultiplier="1.5"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#faf9a0"
+            android:text="This is the content page  \n"
+            android:lineSpacingMultiplier="1.5"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#0af9ff"
+            android:text="This is the content page  \n"
+            android:lineSpacingMultiplier="1.5"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#00f9af"
+            android:text="This is the content page  \n"
+            android:lineSpacingMultiplier="1.5"
             />
 
     </LinearLayout>

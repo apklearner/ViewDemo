@@ -3,10 +3,13 @@ package com.example.viewdemo.acts;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Slide;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.viewdemo.R;
 import com.example.viewdemo.view.BehindGroupView;
+import com.r0adkll.slidr.Slidr;
 
 public class BehindViewActivity  extends AppCompatActivity {
 
@@ -23,5 +26,13 @@ public class BehindViewActivity  extends AppCompatActivity {
                 behindGroupView.toggleRunner();
             }
         });
+
+        findViewById(R.id.tv_next).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BehindViewActivity.this,"click the behind ",Toast.LENGTH_SHORT).show();
+            }
+        });
+        Slidr.attach(this);
     }
 }
