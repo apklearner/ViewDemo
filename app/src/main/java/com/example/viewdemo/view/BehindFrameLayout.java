@@ -2,12 +2,21 @@ package com.example.viewdemo.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Scroller;
 
-public class BehindGroupView extends ViewGroup {
+
+/**
+ * Created by ly on 2018/11/15.
+ * 思路是 下层的容器大小尺寸不变 ，动态比例改变父容器的高度
+ * 需要判比 上层容器和父容器的尺寸比例
+ */
+
+public class BehindFrameLayout extends FrameLayout {
+
     private final String TAG = BehindFrameLayout.class.getSimpleName();
 
     public interface OnRangeChangeListener {
@@ -30,21 +39,21 @@ public class BehindGroupView extends ViewGroup {
     private boolean isFinish = true;
     private final int maxRange = 650;
 
-    private BehindFrameLayout.OnRangeChangeListener listener;
+    private OnRangeChangeListener listener;
 
-    public void setOnRangeChangeListener(BehindFrameLayout.OnRangeChangeListener listener) {
+    public void setOnRangeChangeListener(OnRangeChangeListener listener) {
         this.listener = listener;
     }
 
-    public BehindGroupView(Context context) {
+    public BehindFrameLayout(Context context) {
         this(context, null);
     }
 
-    public BehindGroupView(Context context, AttributeSet attrs) {
+    public BehindFrameLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BehindGroupView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BehindFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mScroller = new Scroller(context);
     }
@@ -69,11 +78,10 @@ public class BehindGroupView extends ViewGroup {
         if (frontHeight == 0) {
             frontHeight = frontView.getMeasuredHeight();
             parentHeight = frontHeight;
-            frontChangeHeight = frontHeight;
         }
         if (behindHeight == 0) {
             behindHeight = behindView.getMeasuredHeight();
-            MarginLayoutParams params = (MarginLayoutParams) behindView.getLayoutParams();
+            LayoutParams params = (LayoutParams) behindView.getLayoutParams();
             behindHeight += params.topMargin;
             behindHeight += params.bottomMargin;
         }
@@ -89,29 +97,9 @@ public class BehindGroupView extends ViewGroup {
 
 
     @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        if (frontView != null) {
-            frontView.layout(0, 0, parentWidth, frontChangeHeight);
-        }
-
-        if (behindView != null) {
-            behindView.layout(0, parentHeight - behindHeight, parentWidth, parentHeight);
-        }
-    }
-
-    @Override
-    protected LayoutParams generateDefaultLayoutParams() {
-        return new MarginLayoutParams(MarginLayoutParams.MATCH_PARENT, MarginLayoutParams.WRAP_CONTENT);
-    }
-
-    @Override
-    protected LayoutParams generateLayoutParams(LayoutParams p) {
-        return new MarginLayoutParams(p);
-    }
-
-    @Override
-    public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new MarginLayoutParams(getContext(), attrs);
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        Log.e(TAG, "onlayout ");
+        super.onLayout(changed, left, top, right, bottom);
     }
 
     private void caculateParentHeight(int curValue, int maxValue) {
@@ -120,14 +108,13 @@ public class BehindGroupView extends ViewGroup {
 
 
     private int lastY;
-    private int behindTopMargin;
-    private int frontChangeHeight;
     private Runnable taskRunner = new Runnable() {
         @Override
         public void run() {
             if (mScroller.computeScrollOffset()) {
                 int curY = mScroller.getCurrY();
                 Log.e(TAG, "curY  lastY  " + curY + "   " + lastY);
+
                 if (lastY == curY) {
                     post(this);
                     return;
@@ -135,20 +122,20 @@ public class BehindGroupView extends ViewGroup {
 
                 if (listener != null) listener.onRangeChanged(curY, maxRange);
                 caculateParentHeight(curY, maxRange);
-
                 float stepRange = (float) curY / (float) maxRange;
                 int extraFrontHeight = (int) (frontHeight * stepRange * frontScale);
-//
-                behindTopMargin = (int) (stepRange * frontHeight + extraFrontHeight);
-//                behindView.setLayoutParams(params);
-//
-//
-//                FrameLayout.LayoutParams params1 = (FrameLayout.LayoutParams) frontView.getLayoutParams();
-                frontChangeHeight = frontHeight + extraFrontHeight;
-//                frontView.setLayoutParams(params1);
-//                requestLayout();
-                lastY = curY;
+
+                FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) behindView.getLayoutParams();
+                params.topMargin = (int) (stepRange * frontHeight + extraFrontHeight);
+                behindView.setLayoutParams(params);
+
+
+                FrameLayout.LayoutParams params1 = (FrameLayout.LayoutParams) frontView.getLayoutParams();
+                params1.height = frontHeight + extraFrontHeight;
+                frontView.setLayoutParams(params1);
                 requestLayout();
+                lastY = curY;
+
 
                 post(this);
             } else {
@@ -183,4 +170,5 @@ public class BehindGroupView extends ViewGroup {
         mScroller.startScroll(0, maxRange, 0, -maxRange, duration);
         post(taskRunner);
     }
+
 }
