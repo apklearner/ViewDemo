@@ -21,7 +21,7 @@
             <TextView
                 android:id="@+id/tv_click"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:background="#99000000"
                 />
 
@@ -29,8 +29,8 @@
             <TextView
                 android:id="@+id/tv_next"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:text="This is the next view !!!\n safsfffsf \n afdsfsfdsafa \n affdsfdfsf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisfsfs13"
+                android:layout_height="wrap_content"
+                android:text="This is the start  !!!\n safsfffsf \n afdsfsfdsafa \n affdsfdfsf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n aqwewagdagwrsgsdsa \n roejaiofjoisf \n This is the end !!！"
                 android:lineSpacingMultiplier="1.5"
                 android:background="#ffa0a9"
                 />
