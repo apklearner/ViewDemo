@@ -24,6 +24,14 @@
             android:layout_height="wrap_content"
             android:text="autoFlowText"
             />
+
+
+        <Button
+            android:id="@+id/btn_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="slide"
+            />
     </LinearLayout>
 
 </ScrollView>

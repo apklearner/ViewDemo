@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    >
+
+
+    <com.example.viewdemo.view.SlideMenu
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f0ad"
+            android:text="This the content"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="16sp"
+
+            />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="#ff00"
+            android:text="This the expand"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="16sp"
+
+            />
+
+    </com.example.viewdemo.view.SlideMenu>
+
+</LinearLayout>

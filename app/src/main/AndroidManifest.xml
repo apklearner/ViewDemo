@@ -23,6 +23,13 @@
             />
         <activity android:name=".acts.AutoFlowTextActivity"
             android:theme="@style/ChildTheme"/>
+
+        <activity android:name=".acts.DragViewTestActivity"
+            android:theme="@style/ChildTheme"
+            />
+        <activity android:name=".acts.SlideMenuActivity"
+            android:theme="@style/ChildTheme"
+            />
     </application>
 
 </manifest>
