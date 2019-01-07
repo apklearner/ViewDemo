@@ -96,8 +96,14 @@ public class SlideMenu extends FrameLayout {
         public void onViewReleased(@NonNull View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
             if (releasedChild == contentView) {
-                requestLayout();
-                viewDragHelper.settleCapturedViewAt( 0, 0);
+
+                if (Math.abs(contentView.getLeft()) <= expandWidth / 2) {
+                    requestLayout();
+                    viewDragHelper.settleCapturedViewAt(0, 0);
+                } else if (Math.abs(contentView.getLeft()) < expandWidth) {
+                    requestLayout();
+                    viewDragHelper.settleCapturedViewAt(-expandWidth, 0);
+                }
 //                viewDragHelper.smoothSlideViewTo(expandView, parentWidth, parentWidth + expandWidth);
                 invalidate();
             }
@@ -106,7 +112,7 @@ public class SlideMenu extends FrameLayout {
 
     @Override
     public void computeScroll() {
-        if (viewDragHelper.continueSettling(true)){
+        if (viewDragHelper.continueSettling(true)) {
             invalidate();
         }
     }
@@ -121,4 +127,5 @@ public class SlideMenu extends FrameLayout {
         viewDragHelper.processTouchEvent(event);
         return true;
     }
+
 }
