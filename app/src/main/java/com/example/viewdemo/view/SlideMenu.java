@@ -108,7 +108,13 @@ public class SlideMenu extends FrameLayout {
                 invalidate();
             }
         }
+
+        @Override
+        public int getViewHorizontalDragRange(@NonNull View child) {
+            return getMeasuredWidth() - expandWidth;
+        }
     }
+
 
     @Override
     public void computeScroll() {

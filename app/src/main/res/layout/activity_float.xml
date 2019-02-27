@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0af9a0"
+                android:text="This is the content page  \n"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#af8a0f"
+                android:text="This is the content page  \n"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0aa9a0"
+                android:text="This is the content page  \n"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#faf9a0"
+                android:text="This is the content page  \n"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#0af9ff"
+                android:text="This is the content page  \n"
+                android:lineSpacingMultiplier="1.5"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#00f9af"
+                android:text="This is the content page  \n"
+                android:lineSpacingMultiplier="1.5"
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.example.viewdemo.view.FloatLayout
+        android:id="@+id/floatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:text="Drag"
+            android:gravity="center"
+            android:background="#f00"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            />
+
+    </com.example.viewdemo.view.FloatLayout>
+
+</RelativeLayout>

@@ -9,12 +9,13 @@ import android.widget.Button;
 import com.example.viewdemo.acts.AutoFlowTextActivity;
 import com.example.viewdemo.acts.BehindViewActivity;
 import com.example.viewdemo.acts.DragViewTestActivity;
+import com.example.viewdemo.acts.FloatActivity;
 import com.example.viewdemo.acts.SlideMenuActivity;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn1, btn2,btn3;
+    private Button btn1, btn2, btn3, btn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +25,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn1 = findViewById(R.id.btn_1);
         btn2 = findViewById(R.id.btn_2);
         btn3 = findViewById(R.id.btn_3);
+        btn4 = findViewById(R.id.btn_4);
 
         btn1.setOnClickListener(this);
         btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
+        btn4.setOnClickListener(this);
 
     }
 
@@ -43,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_3:
                 startActivity(new Intent(this, SlideMenuActivity.class));
+                break;
+            case R.id.btn_4:
+                startActivity(new Intent(this, FloatActivity.class));
                 break;
         }
     }
