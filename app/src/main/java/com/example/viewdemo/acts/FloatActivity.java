@@ -1,5 +1,6 @@
 package com.example.viewdemo.acts;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrInterface;
 
 
-public class FloatActivity extends AppCompatActivity implements View.OnClickListener {
+public class FloatActivity extends Activity implements View.OnClickListener {
 
     private TextView content;
     private FloatLayout floatLayout;
